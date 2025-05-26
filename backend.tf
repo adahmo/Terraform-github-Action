@@ -1,6 +1,6 @@
 terraform {
   backend "s3" {
-    bucket         = "my-terraform-state-0477"
+    bucket         = "my-adamumj-bucket-state-0477"
     region         = "us-east-1"
     key            = "s3-github-actions/terraform.tfstate"
     encrypt = true
