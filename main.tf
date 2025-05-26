@@ -3,26 +3,26 @@ provider "aws" {
 }
 
 #tfsec:ignore:aws-s3-enable-bucket-logging
-resource "aws_s3_bucket" "example" {
-  bucket = "my-tf-example-bucket-0477"
+resource "aws_s3_bucket" "adamumj" {
+  bucket = "my-adamumj-demo-bucket-0477"
 }
 
-resource "aws_s3_bucket_ownership_controls" "example" {
-  bucket = aws_s3_bucket.example.id
+resource "aws_s3_bucket_ownership_controls" "adamumj" {
+  bucket = aws_s3_bucket.adamumj.id
   rule {
     object_ownership = "BucketOwnerPreferred"
   }
 }
 
-resource "aws_s3_bucket_acl" "example" {
-  depends_on = [aws_s3_bucket_ownership_controls.example]
+resource "aws_s3_bucket_acl" "adamumj" {
+  depends_on = [aws_s3_bucket_ownership_controls.adamumj]
 
-  bucket = aws_s3_bucket.example.id
+  bucket = aws_s3_bucket.adamumj.id
   acl    = "private"
 }
 
-resource "aws_s3_bucket_public_access_block" "example" {
-  bucket = aws_s3_bucket.example.id
+resource "aws_s3_bucket_public_access_block" "adamumj" {
+  bucket = aws_s3_bucket.adamumj.id
 
   block_public_acls       = true
   block_public_policy     = true
@@ -30,8 +30,8 @@ resource "aws_s3_bucket_public_access_block" "example" {
   restrict_public_buckets = true
 }
 
-resource "aws_s3_bucket_versioning" "versioning_example" {
-  bucket = aws_s3_bucket.example.id
+resource "aws_s3_bucket_versioning" "versioning_adamumj" {
+  bucket = aws_s3_bucket.adamumj.id
   versioning_configuration {
     status = "Enabled"
   }
@@ -43,8 +43,8 @@ resource "aws_kms_key" "mykey" {
   deletion_window_in_days = 7
 }
 
-resource "aws_s3_bucket_server_side_encryption_configuration" "example" {
-  bucket = aws_s3_bucket.example.id
+resource "aws_s3_bucket_server_side_encryption_configuration" "adamumj" {
+  bucket = aws_s3_bucket.adamumj.id
 
   rule {
     apply_server_side_encryption_by_default {
